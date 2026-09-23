@@ -1,0 +1,35 @@
+{
+  "name": "express-pnpm-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A minimal Express.js application scaffolded with pnpm, using morgan for HTTP request logging.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "format": "prettier --write \"**/*.{js,json,md}\"",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix"
+  },
+  "keywords": [
+    "express",
+    "pnpm",
+    "node",
+    "morgan"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1",
+    "morgan": "^1.12.1",
+    "dotenv": "^18.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.2.5"
+  }
+}
