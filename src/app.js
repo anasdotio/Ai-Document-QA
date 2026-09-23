@@ -1,5 +1,10 @@
 import express from 'express';
 import morgan from 'morgan';
+import {
+  notFoundHandler,
+  globalErrorHandler,
+} from './middlewares/globalErrorHandler.js';
+import ApiResponse from './utils/apiResponse.js';
 
 const app = express();
 
@@ -14,7 +19,9 @@ app.use(morgan('dev'));
  * @access Public
  */
 app.get('/health', (req, res) => {
-  return res.status(200).json({ message: 'Healthy', status: 'success' });
+  return res.status(200).json(new ApiResponse(200, 'Server is healthy'));
 });
 
+app.use(notFoundHandler);
+app.use(globalErrorHandler);
 export default app;
