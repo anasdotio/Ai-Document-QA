@@ -1,3 +1,4 @@
+import logger from '../logger/logger.js';
 // middlewares/errorHandler.js
 function globalErrorHandler(err, req, res, next) {
   const statusCode = err.statusCode || 500;
@@ -5,7 +6,7 @@ function globalErrorHandler(err, req, res, next) {
   const env = process.env.NODE_ENV || 'development';
 
   // Always log server-side
-  console.error({
+  logger.error({
     message: err.message,
     statusCode,
     path: req.originalUrl,

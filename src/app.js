@@ -4,6 +4,7 @@ import {
   notFoundHandler,
   globalErrorHandler,
 } from './middlewares/globalErrorHandler.js';
+import logger from './logger/logger.js';
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(morgan('dev'));
  * @access Public
  */
 app.get('/health', (req, res) => {
+  logger.info('Health check endpoint hit');
   return res.status(200).json({ message: 'Healthy', status: 'success' });
 });
 
